@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Register</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { margin-bottom: 20px; }
+        input[type="text"], input[type="email"], input[type="date"] { display: block; margin-bottom: 10px; padding: 8px; width: 300px; }
+        input[type="submit"] { padding: 8px 16px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+
+<h1>Class Register</h1>
+
+<form id="student-form">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="text" id="surname" placeholder="Surname" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="date" id="birthday" required>
+    <input type="submit" value="Add Student">
+</form>
+
+<table id="students-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Birthday</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+    document.getElementById('student-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const student = {
+            name: document.getElementById('name').value,
+            surname: document.getElementById('surname').value,
+            email: document.getElementById('email').value,
+            birthday: document.getElementById('birthday').value
+        };
+
+        fetch('http://localhost:5000/students', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(student)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            loadStudents();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+
+    function loadStudents() {
+        fetch('http://localhost:5000/students')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('students-table').getElementsByTagName('tbody')[0];
+                tableBody.innerHTML = '';
+                data.forEach(student => {
+                    let row = tableBody.insertRow();
+                    row.insertCell(0).innerText = student.id;
+                    row.insertCell(1).innerText = student.name;
+                    row.insertCell(2).innerText = student.surname;
+                    row.insertCell(3).innerText = student.email;
+                    row.insertCell(4).innerText = student.birthday;
+                    row.insertCell(5).innerHTML = `<button onclick="deleteStudent(${

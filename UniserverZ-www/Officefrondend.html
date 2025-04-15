@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GG Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: ##000000;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        nav ul li.admin {
+            background-color: #000000;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+        }
+        nav ul li.admin a {
+            color: white;
+        }
+        nav ul li.admin a:hover {
+            background-color: #000000;
+        }
+        .hero {
+            background: url('gg.png') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .hero a {
+            background: #808080;
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+        .hero a:hover {
+            background: #005bb5;
+        }
+        section {
+            padding: 3rem 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        section p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+        .services {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .services .service {
+            background: #f4f4f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            padding: 2rem 1rem;
+            flex: 1;
+        }
+        .services .service img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+        .services .service h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .services .service p {
+            color: #666;
+        }
+        .contact {
+            text-align: center;
+        }
+        .contact a {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #0073e6;
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+        .contact a:hover {
+            background: #005bb5;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            .services {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">GG Company</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="admin"><a href="http://localhost/officelogin.php">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div>
+            <h1>Welcome to GG Company</h1>
+            <p>Your trusted partner for innovation and excellence.</p>
+            <a href="#services">Explore Our Services</a>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>At GG Company, we specialize in delivering top-notch solutions to help businesses grow and succeed. Our team is dedicated to innovation and client satisfaction.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service">
+                <img src="ccc.png" alt="Service 1">
+                <h3>Consulting</h3>
+                <p>Expert advice to help you navigate complex challenges.</p>
+            </div>
+            <div class="service">
+                <img src="ttt.png" alt="Service 2">
+                <h3>Technology</h3>
+                <p>Innovative solutions to keep you ahead in the tech space.</p>
+            </div>
+            <div class="service">
+                <img src="mmm.png" alt="Service 3">
+                <h3>Marketing</h3>
+                <p>Strategies that drive growth and enhance your brand.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Reach out to us for any inquiries or collaboration opportunities.</p>
+        <a href="mailto:info@ggcompany.com">Email Us</a>
+    </section>
+
+    <footer>
+        &copy; 2024 GG Company. All Rights Reserved.
+    </footer>
+</body>
+</html>

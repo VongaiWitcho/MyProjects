@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Lecturer Portal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #007bff;
+        }
+        .navbar-brand, .nav-link, .welcome-text {
+            color: #fff;
+        }
+        .nav-link:hover {
+            color: #f8f9fa;
+        }
+        .card {
+            margin-top: 20px;
+        }
+        .footer {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Lecturer Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#dashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                <!-- Link to localhost/joint.php for Students -->
+                <li class="nav-item"><a class="nav-link" href="http://localhost/joint.php">Students</a></li>
+                <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings">Settings</a></li>
+                <!-- Link to localhost/logout.php for Logout -->
+                <li class="nav-item"><a class="nav-link" href="http://localhost/logout.php">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <h2 class="welcome-text">Welcome, Professor [Lecturer's Name]</h2>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="card mt-4">
+            <div class="card-header">
+                <h4>Dashboard</h4>
+            </div>
+            <div class="card-body">
+                <p>Overview of your courses, recent updates, and notifications.</p>
+            </div>
+        </div>
+
+        <!-- Courses Section -->
+        <div id="courses" class="card">
+            <div class="card-header">
+                <h4>Your Courses</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Semester</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CS101</td>
+                            <td>Introduction to Programming</td>
+                            <td>Fall 2023</td>
+                            <td><button class="btn btn-primary btn-sm">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS201</td>
+                            <td>Data Structures</td>
+                            <td>Spring 2024</td>
+                            <td><button class="btn btn-primary btn-sm">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Students Section -->
+        <div id="students" class="card">
+            <div class="card-header">
+                <h4>Your Students</h4>
+            </div>
+            <div class="card-body">
+                <p>Manage student attendance, grades, and feedback.</p>
+                <a href="http://localhost/joint.php" class="btn btn-primary">Go to Student Management</a>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div id="resources" class="card">
+            <div class="card-header">
+                <h4>Resources</h4>
+            </div>
+            <div class="card-body">
+                <p>Access teaching resources, assignments, and materials.</p>
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="card">
+            <div class="card-header">
+                <h4>Account Settings</h4>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter new password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Settings</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2023 University Lecturer Portal. All rights reserved.</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

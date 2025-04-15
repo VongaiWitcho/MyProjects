@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Register</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { margin-bottom: 20px; }
+        input[type="text"], input[type="email"], input[type="date"] { display: block; margin-bottom: 10px; padding: 8px; width: 300px; }
+        input[type="submit"] { padding: 8px 16px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+
+<h1>Class Register</h1>
+
+<form id="student-form">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="text" id="surname" placeholder="Surname" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="date" id="birthday" required>
+    <input type="submit" value="Add Student">
+</form>
+
+<table id="students-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Birthday</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+    document.getElementById('student-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const student = {
+            name: document.getElementById('name').value,
+            surname: document.getElementById('surname').value,
+            email: document.getElementById('email').value,
+            birthday: document.getElementById('birthday').value
+        };
+
+        fetch('http://localhost:5000/students', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(student)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            loadStudents();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+
+    function loadStudents() {
+        fetch('http://localhost:5000/students')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('students-table').getElementsByTagName('tbody')[0];
+                tableBody.innerHTML = '';
+                data.forEach(student => {
+                    let row = tableBody.insertRow();
+                    row.insertCell(0).innerText = student.id;
+                    row.insertCell(1).innerText = student.name;
+                    row.insertCell(2).innerText = student.surname;
+                    row.insertCell(3).innerText = student.email;
+                    row.insertCell(4).innerText = student.birthday;
+                    row.insertCell(5).innerHTML = `<button onclick="deleteStudent(${
+
+
+
+..........................................................................................................................................
+
+
+
+<?php
+ 
+header("Content-Type: application/json");
+ 
+    try {
+        $db = new PDO('mysql:host=localhost;dbname=website','root','root');
+    }
+ 
+    catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+ 
+$method = $_SERVER["REQUEST_METHOD"];
+$input = json_decode(file_get_contents('php://input'),true);
+
+$token== "123";
+ 
+ //token here that $token== "123" and also on put &&$token==$input["token"]; in post man you can add "token" = 123 and maybe alter the fname and you will see that in the database it would have been changed
+ 
+if ($method == "GET" && $_GET["id"] == "") {
+ 
+  $statement = $db->query("SELECT * FROM students");
+   foreach($statement as $row) {
+    //echo $row["name"]." - ".$row["fname"]."<br />";
+    $new_array[$row["id"]]["name"] = $row["name"];
+    $new_array[$row["id"]]["surname"] = $row["surname"];
+    $new_array[$row["id"]]["email"] = $row["email"];
+    $new_array[$row["id"]]["birthday"] = $row["birthday"];
+
+   }
+    $statement->closeCursor();
+    //print_r($new_array);
+ 
+    echo json_encode($new_array);
+ 
+}
+ 
+ 
+ 
+if ($method == "GET" && $_GET["id"] > 0) {
+ 
+  $statement = $db->query("SELECT * FROM students WHERE id=".$_GET["id"]);
+   foreach($statement as $row) {
+    //echo $row["name"]." - ".$row["fname"]."<br />";
+    $new_array[$row["id"]]["name"] = $row["name"];
+    $new_array[$row["id"]]["surname"] = $row["surname"];
+    $new_array[$row["id"]]["email"] = $row["email"];
+    $new_array[$row["id"]]["birthday"] = $row["birthday"];
+   }
+    $statement->closeCursor();
+    //print_r($new_array);
+ 
+    echo json_encode($new_array);
+ 
+}
+ 
+ 
+ 
+if ($method == "POST") {
+ 
+    $query = "INSERT INTO students (name,surname,email,birthday) values ('".$input["name"]."','".$input["surname"].','".$input["email"].,'".$input["birthday"]."')";
+    $statement = $db->prepare($query);
+    $statement->execute();
+ 
+  echo $query;
+ 
+}
+ 
+ 
+if ($method == "PUT" && $_GET["id"] > 0 &&$token==$input["token"]) {
+ 
+    $sql = "UPDATE students SET name=?, surname=?,email=?,birthday=? WHERE id=?";
+    $db->prepare($sql)->execute([$input["name"],$input["surname"]$input["email"]$input["birthday"],$_GET["id"]]);
+ 
+}
+ 
+ 
+ 
+if ($method == "DELETE" && $_GET["id"] > 0) {
+ 
+    $del = $db->exec("DELETE FROM students WHERE id=".$_GET["id"]);
+    echo "{\"Deleted\": \"ok\"}";
+ 
+}
+ 
+ 
+?>
+
+.................................................................................................................................
+
+
+
+<?php
+ 
+header("Content-Type: application/json");
+ 
+    try {
+        $db = new PDO('mysql:host=localhost;dbname=website','root','root');
+    }
+ 
+    catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+ 
+$method = $_SERVER["REQUEST_METHOD"];
+$input = json_decode(file_get_contents('php://input'),true);
+
+$token== "123";
+ 
+ //token here that $token== "123" and also on put &&$token==$input["token"]; in post man you can add "token" = 123 and maybe alter the fname and you will see that in the database it would have been changed
+ 
+if ($method == "GET" && $_GET["id"] == "") {
+ 
+  $statement = $db->query("SELECT * FROM usersj");
+   foreach($statement as $row) {
+    //echo $row["name"]." - ".$row["fname"]."<br />";
+    $new_array[$row["id"]]["name"] = $row["name"];
+    $new_array[$row["id"]]["fname"] = $row["fname"];
+   }
+    $statement->closeCursor();
+    //print_r($new_array);
+ 
+    echo json_encode($new_array);
+ 
+}
+ 
+ 
+ 
+if ($method == "GET" && $_GET["id"] > 0) {
+ 
+  $statement = $db->query("SELECT * FROM usersj WHERE id=".$_GET["id"]);
+   foreach($statement as $row) {
+    //echo $row["name"]." - ".$row["fname"]."<br />";
+    $new_array["name"] = $row["name"];
+    $new_array["fname"] = $row["fname"];
+   }
+    $statement->closeCursor();
+    //print_r($new_array);
+ 
+    echo json_encode($new_array);
+ 
+}
+ 
+ 
+ 
+if ($method == "POST") {
+ 
+    $query = "INSERT INTO usersj (name,Fname) values ('".$input["name"]."','".$input["fname"]."')";
+    $statement = $db->prepare($query);
+    $statement->execute();
+ 
+  echo $query;
+ 
+}
+ 
+ 
+if ($method == "PUT" && $_GET["id"] > 0 &&$token==$input["token"]) {
+ 
+    $sql = "UPDATE usersj SET name=?, Fname=? WHERE id=?";
+    $db->prepare($sql)->execute([$input["name"],$input["name"],$_GET["id"]]);
+ 
+}
+ 
+ 
+ 
+if ($method == "DELETE" && $_GET["id"] > 0) {
+ 
+    $del = $db->exec("DELETE FROM usersj WHERE id=".$_GET["id"]);
+    echo "{\"Deleted\": \"ok\"}";
+ 
+}
+ 
+ 
+?>

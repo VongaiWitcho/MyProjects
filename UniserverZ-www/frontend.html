@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { margin-bottom: 20px; }
+        input[type="text"], input[type="email"], input[type="date"] { display: block; margin-bottom: 10px; padding: 8px; width: 300px; }
+        input[type="submit"], button { padding: 8px 16px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        button { margin: 5px; }
+    </style>
+</head>
+<body>
+
+<h1>Student Management</h1>
+
+<form id="student-form">
+    <input type="hidden" id="student-id">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="text" id="surname" placeholder="Surname" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="date" id="birthday" required>
+    <input type="submit" value="Add Student">
+</form>
+
+<table id="students-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Birthday</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+document.getElementById('student-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const student = {
+        name: document.getElementById('name').value,
+        surname: document.getElementById('surname').value,
+        email: document.getElementById('email').value,
+        birthday: document.getElementById('birthday').value
+    };
+
+    fetch('http://localhost/students.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(student)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        loadStudents();
+        document.getElementById('student-form').reset();
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+
+function loadStudents() {
+    fetch('http://localhost/students.php')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('students-table').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = '';
+            data.forEach(student => {
+                let row = tableBody.insertRow();
+                row.insertCell(0).innerText = student.id;
+                row.insertCell(1).innerText = student.name;
+                row.insertCell(2).innerText = student.surname;
+                row.insertCell(3).innerText = student.email;
+                row.insertCell(4).innerText = student.birthday;
+                let actionsCell = row.insertCell(5);
+                actionsCell.innerHTML = `<button onclick="editStudent(${student.id})">Edit</button> <button onclick="deleteStudent(${student.id})">Delete</button>`;
+            });
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+function editStudent(id) {
+    fetch(`http://localhost/students.php?id=${id}`)
+        .then(response => response.json())
+        .then(data => {
+            const student = data;
+            document.getElementById('student-id').value = student.id;
+            document.getElementById('name').value = student.name;
+            document.getElementById('surname').value = student.surname;
+            document.getElementById('email').value = student.email;
+            document.getElementById('birthday').value = student.birthday;
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+function deleteStudent(id) {
+    fetch(`http://localhost/students.php?id=${id}`, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        loadStudents();
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+// Load students when the page loads
+document.addEventListener('DOMContentLoaded', loadStudents);
+</script>
+
+</body>
+</html>
