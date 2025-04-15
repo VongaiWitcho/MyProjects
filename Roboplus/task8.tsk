@@ -1,0 +1,48 @@
+﻿version 3.00
+cm_version 1.0
+platform CM-530
+o main
+o begin
+o while(1)
+o begin
+- 
+o if param_src:ir_array:3:208 lop:== param_src:irarray_num:1 rop:then
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:0
+o load param_dest:motor:2:107 param_src:dir_num:1344
+o end
+o if param_src:ir_array:3:208 lop:== param_src:irarray_num:2 rop:then
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:0
+o load param_dest:motor:2:107 param_src:dir_num:1274
+o end
+o if param_src:ir_array:3:208 lop:== param_src:irarray_num:4 rop:then
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:100
+o load param_dest:motor:2:107 param_src:dir_num:1194
+o end
+o if param_src:ir_array:3:208 lop:== param_src:irarray_num:8 rop:then
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:190
+o load param_dest:motor:2:107 param_src:dir_num:1204
+o end
+o if param_src:ir_array:3:208 lop:== param_src:irarray_num:16 rop:then
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:170
+o load param_dest:motor:2:107 param_src:dir_num:1124
+o end
+o if param_src:ir_array:3:208 lop:== param_src:irarray_num:32 rop:then
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:230
+o load param_dest:motor:2:107 param_src:dir_num:1024
+- 
+o end
+o if param_src:ir_array:3:208 lop:== param_src:irarray_num:64 rop:then
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:320
+o load param_dest:motor:2:107 param_src:dir_num:1024
+- 
+o end
+o end
+- 
+o end

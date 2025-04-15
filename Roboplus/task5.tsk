@@ -1,0 +1,108 @@
+﻿version 3.00
+cm_version 1.0
+platform CM-530
+o main
+o begin
+- 
+o if param_src:cm:4 lop:== param_src:button_num:4 rop:then
+o begin
+o call faddr_dest:right
+- 
+o load param_dest:cm:6 param_src:hrtimer_num:500
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+- 
+o call faddr_dest:forty
+- 
+- 
+o call faddr_dest:left
+- 
+- 
+o call faddr_dest:hundred
+- 
+o call faddr_dest:left
+- 
+o call faddr_dest:onefifty
+- 
+- 
+o call faddr_dest:left
+- 
+o call faddr_dest:hundred
+- 
+o call faddr_dest:left
+- 
+o call faddr_dest:forty
+- 
+o call faddr_dest:right
+- 
+o call faddr_dest:twentysix
+- 
+o end
+o end
+- 
+- 
+o function faddr_src:front
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:260
+o load param_dest:motor:2:107 param_src:dir_num:1269
+o end
+- 
+- 
+o function faddr_src:stop
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:0
+o load param_dest:motor:2:107 param_src:dir_num:1024
+o end
+- 
+o function faddr_src:back
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:1284
+o load param_dest:motor:2:107 param_src:dir_num:245
+o end
+- 
+o function faddr_src:left
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:220
+o load param_dest:motor:2:107 param_src:dir_num:300
+o load param_dest:cm:6 param_src:hrtimer_num:500
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+o end
+- 
+o function faddr_src:right
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:1244
+o load param_dest:motor:2:107 param_src:dir_num:1324
+o load param_dest:cm:6 param_src:hrtimer_num:500
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+o end
+- 
+o function faddr_src:forty
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:1284
+o load param_dest:motor:2:107 param_src:dir_num:245
+o load param_dest:cm:6 param_src:hrtimer_num:1466
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+o end
+- 
+o function faddr_src:hundred
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:1284
+o load param_dest:motor:2:107 param_src:dir_num:245
+o load param_dest:cm:6 param_src:hrtimer_num:3666
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+o end
+- 
+o function faddr_src:onefifty
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:1284
+o load param_dest:motor:2:107 param_src:dir_num:245
+o load param_dest:cm:6 param_src:hrtimer_num:5500
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+o end
+- 
+o function faddr_src:twentysix
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:1284
+o load param_dest:motor:2:107 param_src:dir_num:245
+o load param_dest:cm:6 param_src:hrtimer_num:900
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+o end

@@ -1,0 +1,92 @@
+﻿version 3.00
+cm_version 1.0
+platform CM-530
+o main
+o begin
+o load param_dest:var:i param_src:dec_num:0
+o for param_var:i param_src:dec_num:0 param_src:dec_num:2
+o begin
+- 
+- 
+o call faddr_dest:right
+o load param_dest:cm:6 param_src:hrtimer_num:1466
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+- 
+o call faddr_dest:stop
+- 
+o call faddr_dest:left
+o load param_dest:cm:6 param_src:hrtimer_num:3666
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+- 
+o call faddr_dest:stop
+- 
+o call faddr_dest:left
+o load param_dest:cm:6 param_src:hrtimer_num:5500
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+- 
+o call faddr_dest:stop
+- 
+o call faddr_dest:left
+o load param_dest:cm:6 param_src:hrtimer_num:3666
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+- 
+o call faddr_dest:stop
+- 
+o call faddr_dest:left
+o load param_dest:cm:6 param_src:hrtimer_num:1460
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+- 
+o call faddr_dest:stop
+- 
+o call faddr_dest:right
+o load param_dest:cm:6 param_src:hrtimer_num:900
+o wait param_src:cm:6 lop:> param_src:timer_num:0 rop:then
+- 
+o call faddr_dest:stop
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+o end
+o end
+- 
+- 
+o function faddr_src:front
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:260
+o load param_dest:motor:2:107 param_src:dir_num:1269
+o end
+- 
+- 
+o function faddr_src:stop
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:0
+o load param_dest:motor:2:107 param_src:dir_num:1024
+o end
+- 
+o function faddr_src:back
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:1284
+o load param_dest:motor:2:107 param_src:dir_num:245
+o end
+- 
+o function faddr_src:left
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:260
+o load param_dest:motor:2:107 param_src:dir_num:260
+- 
+o end
+- 
+o function faddr_src:right
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:1284
+o load param_dest:motor:2:107 param_src:dir_num:1284
+- 
+o end

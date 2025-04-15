@@ -1,0 +1,28 @@
+﻿version 3.00
+cm_version 1.0
+platform CM-530
+o main
+o begin
+- 
+o while(1)
+o begin
+o for param_var:? param_src:? param_src:?
+o begin
+- 
+o end
+o if param_src:cm:4 lop:== param_src:button_num:16 rop:then
+o begin
+o while param_src:cm:5 lop:< param_src:timer_num:73 rop:then
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:260
+o load param_dest:motor:2:107 param_src:dir_num:1269
+- 
+o if param_src:cm:5 lop:== param_src:timer_num:0 rop:then
+o begin
+o load param_dest:motor:1:107 param_src:dir_num:0
+o load param_dest:motor:2:107 param_src:dir_num:1024
+o end
+o end
+o end
+o end
+o end
