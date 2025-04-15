@@ -1,0 +1,11 @@
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\bin\Debug\2nd proper calculatorWindowsFormsApp1.exe.config
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\bin\Debug\2nd proper calculatorWindowsFormsApp1.exe
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\bin\Debug\2nd proper calculatorWindowsFormsApp1.pdb
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\obj\Debug\2nd proper calculatorWindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\obj\Debug\2nd proper calculatorWindowsFormsApp1.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\obj\Debug\_2nd_proper_calculatorWindowsFormsApp1.Form1.resources
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\obj\Debug\_2nd_proper_calculatorWindowsFormsApp1.Properties.Resources.resources
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\obj\Debug\2nd proper calculatorWindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\obj\Debug\2nd proper calculatorWindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\obj\Debug\2nd proper calculatorWindowsFormsApp1.exe
+C:\Users\user\source\repos\2nd proper calculatorWindowsFormsApp1\obj\Debug\2nd proper calculatorWindowsFormsApp1.pdb
